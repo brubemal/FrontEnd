@@ -1,0 +1,141 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis de cor inspiradas na Netflix */
+:root {
+    --netflix-black: #141414;
+    --netflix-dark-gray: #2c2c2c;
+    --netflix-gray: #808080;
+    --netflix-white: #ffffff;
+    --netflix-red: #e50914;
+    --profile-size: 150px;
+    --transition: all 0.3s ease;
+}
+
+/* Corpo da página */
+body {
+    background-color: var(--netflix-black);
+    color: var(--netflix-white);
+    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+header {
+    text-align: center;
+    padding: 3rem 1rem 1rem;
+}
+
+header h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: var(--netflix-red);
+}
+
+
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+
+.profiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.profile:hover {
+    transform: scale(1.02);
+}
+
+
+figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+
+.profile img {
+    width: var(--profile-size);
+    height: var(--profile-size);
+    border-radius: 20px;
+    object-fit: cover;
+    border: 3px solid transparent;
+    transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.profile:hover img {
+    border-color: var(--netflix-red);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+}
+
+
+figcaption {
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 0.5rem;
+    color: var(--netflix-gray);
+    transition: var(--transition);
+}
+
+.profile:hover figcaption {
+    color: var(--netflix-white);
+}
+
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .profiles {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    :root {
+        --profile-size: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profiles {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    :root {
+        --profile-size: 100px;
+    }
+}
