@@ -1,13 +1,11 @@
 const player = document.getElementById("player");
 const notification = document.getElementById("notification");
 const vidaLabel = document.getElementById("vida");
-const energiaLabel = document.getElementById("energia");
 const nivelLabel = document.getElementById("nivel");
 const pontosLabel = document.getElementById("pontos");
 
 const stats = {
   vida: 100,
-  energia: 100,
   nivel: 1,
   pontos: 0,
 };
@@ -25,7 +23,6 @@ const playerState = {
 
 function atualizarHUD() {
   vidaLabel.textContent = stats.vida;
-  energiaLabel.textContent = stats.energia;
   nivelLabel.textContent = stats.nivel;
   pontosLabel.textContent = stats.pontos;
 }
@@ -35,10 +32,6 @@ function mover(dx, dy) {
   playerState.y = Math.max(8, Math.min(area.height - 40, playerState.y + dy * area.step));
   player.style.left = `${playerState.x}px`;
   player.style.top = `${playerState.y}px`;
-  stats.energia = Math.max(0, stats.energia - 2);
-  if (stats.energia === 0) {
-    exibirNotificacao("Cansado! Encontre uma poção para recuperar energia.");
-  }
   atualizarHUD();
 }
 
@@ -69,7 +62,6 @@ function interagir() {
   } else if (resultado.includes("baú")) {
     stats.nivel += 1;
     stats.pontos += 15;
-    stats.energia = Math.min(100, stats.energia + 20);
   } else if (resultado.includes("armadilha")) {
     stats.vida = Math.max(0, stats.vida - 15);
   }
