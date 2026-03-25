@@ -119,12 +119,6 @@ body {
   font-size: 1.1rem;
 }
 
-.inventory-list {
-  list-style: inside;
-  color: #cbd5e1;
-  line-height: 1.6;
-}
-
 .footer {
   padding: 0.7rem 1rem;
   text-align: center;
