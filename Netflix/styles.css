@@ -18,7 +18,7 @@
 
 
 body {
-    background: linear-gradient(to top, var(--netflix-red), var(--netflix-black) 25%);
+    background: var(--netflix-black);
     color: var(--netflix-white);
     font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.5;
