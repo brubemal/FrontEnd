@@ -11,6 +11,8 @@
     --netflix-gray: #808080;
     --netflix-white: #ffffff;
     --netflix-red: #e50914;
+    --netflix-card-dark: rgba(255, 255, 255, 0.06);
+    --netflix-card-light: rgba(0, 0, 0, 0.06);
     --profile-size: 150px;
     --transition: all 0.3s ease;
 }
@@ -26,10 +28,62 @@ body {
     flex-direction: column;
 }
 
+body.light-mode {
+    background: var(--netflix-white);
+    color: var(--netflix-black);
+}
+
+body.light-mode header h1,
+body.light-mode .profile:hover figcaption {
+    color: var(--netflix-black);
+}
+
+body.light-mode .profile {
+    background: var(--netflix-card-light);
+}
+
+body.light-mode .profile img {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+body.light-mode .profile:hover img {
+    border-color: var(--netflix-red);
+}
+
+body.light-mode .profiles {
+    gap: 2.5rem;
+}
+
 
 header {
     text-align: center;
     padding: 3rem 1rem 1rem;
+}
+
+#theme-toggle {
+    margin-top: 1rem;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--netflix-white);
+    padding: 0.5rem 0.75rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1.5rem;
+}
+
+#theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body.light-mode #theme-toggle {
+    border-color: var(--netflix-black);
+    color: var(--netflix-black);
+}
+
+body.light-mode #theme-toggle:hover {
+    background: rgba(0, 0, 0, 0.06);
 }
 
 header h1 {
